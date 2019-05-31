@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <h3>Görev Oluştur</h3>
-        <small>Görev oluşturmaya hazır mısın?  {{request.user.username}}</small>
+        <small> {{request.user.username}}</small>
         <hr>
         <form method = "post">
             {% csrf_token %}
