@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if missions %}
+  {% for mission in missions  %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Başlığı</th>
+      <th scope="col">Tarih</th>
+      <th scope="col">İşlemler</th>   
+    </tr>
+  </thead>
+  <tbody>
+        
+   <tr>
+      <th scope="row">1</th>
+      <td>{{missions.title}}</td>
+      <td>{{missions.startDate}}</td>
+      <td><a type="button" class="btn btn-secondary"href="#">Güncelle</a></td>
+      <td><a type="button" class="btn btn-danger"href="#">Güncelle</a>  </td>
+    </tr>{
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-danger">Henüz bir İlan eklememişsiniz</div>
+    {% endif %}
+  </tbody>
+</table>
+
+
+{% endblock  %}

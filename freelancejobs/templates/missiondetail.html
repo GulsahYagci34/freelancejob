@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="list-group">
+  
+
+
+  {% if missions %}
+
+    <div class="container">
+    <p class="h2">{{missions.title}}</p>
+    <hr>  
+    <div class="pr-3">
+      <small>{{missions.author.username}} tarafından {{missions.startDate}} tarihinde oluşturuldu</small>
+    </div>
+    <p class="h4">{{missions.detail}}</p>
+    </div>
+  {% else %}
+    <div class="alert alert-danger">Henüz bir ilan oluşturulmamış</div>
+  {% endif %}
+  
+  
+
+{% endblock  %}

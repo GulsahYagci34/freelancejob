@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="">
+
+{% if mission %}
+{% for  in mission %}
+
+     <div class="container">
+    <p class="h2">{{missions.title}}</p>
+    <hr>  
+    <div class="pr-3">
+      <small>{{missions.author.username}} tarafından {{missions.startDate}} tarihinde oluşturuldu</small>
+    </div>
+        <a type="button" class="btn btn-danger" href="#missiondetailint">İlana Git</a>
+    </div>
+
+{% endfor %}
+{% else %}
+{% endif %}
+<div class="alert alert-danger"> Henüz ilan verilmemiş </div>
+
+</div>
+{% endblock  %}
