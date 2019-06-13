@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr> 
+      <th scope="col">İlan Başlığı</th>
+      <th scope="col">Tarih</th>
+      <th scope="col">Güncelle</th> 
+      <th scope="col">Kaldır</th> 
+    </tr>
+  </thead>
+
+  {% for mymission in mymissions  %}
+
+  <tbody>
+    <tr>
+      
+      <td><a href="{% url 'mission:mydetailmission' mymission.id %}" style="color:black; text-decoration: none;">{{mymission.title}}</a></td>
+      <td>{{mymission.date}}</td>
+      <td><a  class="btn btn-secondary" href="{% url 'mission:updatemission' mymission.id %}">İlanı Güncelle</a></td>
+      <td><a  class="btn btn-danger" href="{% url 'mission:deletemission' mymission.id %}">İlanı Kaldır</a>  </td>
+    </tr>  
+  </tbody>
+   
+    {% endfor %}
+
+</table>
+
+
+{% endblock  %}

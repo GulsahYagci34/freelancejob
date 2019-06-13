@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+    <div class="col-3 border border-primary shadow p-3 mb-5 bg-white rounded" style="height:500px;">
+      filtreleme
+    </div>
+    <div class="col-9">
+      {% for mymission in mymissions %}
+      <div class="container border border-primary shadow p-3 mb-5 bg-white rounded" style="width:600px;">
+       <p class="h4"><a href="{% url 'mission:alldetailmission' mymission.id %}" style="color:black; text-decoration: none;">{{mymission.title}}</a></p>
+        <small> {{mymission.createdBy}} tarafından {{mymission.date}} tarihinde oluşturuldu</small> <a  class="btn btn-danger" href="{% url 'mission:alldetailmission' mymission.id %}">İlana Git</a>
+        </div>
+      
+
+{% endfor %}
+ 
+
+
+{% endblock  %}

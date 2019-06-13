@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+<div class="container">
+    <a class="navbar-brand" href="{% url 'index' %}">Freelancejobs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">Biz Kimiz?<span class="sr-only">(current)</span></a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'howtowork' %}">Nasıl Çalışır?<span class="sr-only">(current)</span></a>
+        </li>
+      
+      </ul> 
+       {% if request.user.is_authenticated %}
+        
+          <div class="btn-group pr-3">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{request.user.username}}
+              </button>
+              <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="{% url 'userprofile:mypage' %}">Sayfama Git</a>  
+              <a class="dropdown-item" href="{% url 'mission:mymission' %}">İlanlarım</a>
+              <a class="dropdown-item" href="#">Başvurularım</a>
+              <a class="dropdown-item" href="#">Tamamladıklarım</a>
+              <a class="dropdown-item" href="{% url 'mission:addmission' %}">Yeni Bir Görev Oluştur</a>
+              <a class="dropdown-item" href="#">Profil Ayarları</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'userprofile:logout' %}">Çıkış Yap</a>
+              </div>
+            </div>
+        {% else %}
+              <a class="btn btn-outline-light mr-3" href="{% url 'userprofile:register' %}">Üye Ol</a>
+              <a class="btn btn-outline-light mr-3" href="{% url 'userprofile:login' %}">Giriş Yap</a>
+        {% endif %}
+ </div>
+</nav>
